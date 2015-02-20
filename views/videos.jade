@@ -9,14 +9,16 @@ block content
 		for video in bigVideoArray
 			if video.pairs === "a"
 				div.a-pair
-					h3= video.name
+					h3
+						em= video.name
 					p= video.title
 					p= video.description
 					#{video.url}
 
 			else
 				div.b-pair
-					h3= video.name
+					h3
+						em= video.name
 					p= video.title
 					p= video.description
 					#{video.url}

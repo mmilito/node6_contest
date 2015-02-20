@@ -18,13 +18,15 @@ app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: false}));
 
+//////??? SHOULD THESE BE CHAINED UNDER app.route()?
 // define routing
 app.get('/', indexController.goHome);
 app.get('/videos', indexController.getVideos);
 app.post('/formsubmit', indexController.subForm);
 app.post('/goToPage', indexController.goPage);
-// app.get('/makepairs', voteController.makePairs);
-//app.post('/votesubmit', voteController.goForm);
+
+///////!!! NEEDS TO HAVE goVote created 
+app.post('/vote', indexController.goVote);
 
 
 

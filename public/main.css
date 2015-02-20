@@ -1,0 +1,19 @@
+
+body {
+	background-color: bisque;
+}
+.container {
+	background-color: beige;
+}
+.input-group {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+.button {
+	background-color: yellow;
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+.b-pair {
+	display: none;
+}

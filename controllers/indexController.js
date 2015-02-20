@@ -26,13 +26,23 @@ var indexController = {
 
 	// get the data from form, add to array and go to video page
 	subForm: function(req,res){
-		data.bigVideoArray.push(req.body);
-		res.redirect('/videos');
+		if (data.bigVideoArray.length<4){
+			data.bigVideoArray.push(req.body);
+			res.redirect('/videos');
+		} else {
+			res.redirect('/videos');
+		}
 	},
 
 	// go on to video review page
 	goPage: function(req,res){
 		res.redirect('/videos');
+	},
+
+	///////!!! NOT COMPLETE
+	// voting function
+	goVote: function(req,res){
+
 	}
 
 };
