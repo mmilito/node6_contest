@@ -1,0 +1,43 @@
+//- main page, intake form data
+
+extends layout
+
+block content
+
+	h1 Welcome to the Vaulting Video Contest!
+
+	h2 Contest Videos
+
+	div.videos
+		for video in bigVideoArray
+			h3= video.name
+			p= video.title
+			p= video.description
+
+			.div.vid
+				#{video.url}
+
+
+	if bigVideoArray.length>4
+		h2 Sorry, the contest is full
+
+		h3 Go to voting ...
+			form(method='post', action='/goToPage')
+				input.button(name='button', type='submit', value='Go!')
+
+	else
+		h4 Please add your video info! No Voting until contest is full.
+		div.input-group
+			form(method='post', action='/formsubmit')
+				input.form-control(name='name', type='text', placeholder='Name:')
+				input.form-control(name='url', type='text', placeholder='URL for your video')
+				input.form-control(name='title', type='text', placeholder='Title')
+				input.form-control(name='description', type='text', placeholder='Short Description')
+				input.button(name='button', type='submit')
+
+
+
+
+
+
+

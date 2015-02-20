@@ -1,0 +1,34 @@
+//- display of videos
+
+extends layout
+
+block content
+	h1 Vote Here!!
+
+	div.videos
+		for video in bigVideoArray
+			if video.pairs === "a"
+				div.a-pair
+					h3= video.name
+					p= video.title
+					p= video.description
+					#{video.url}
+
+			else
+				div.b-pair
+					h3= video.name
+					p= video.title
+					p= video.description
+					#{video.url}
+
+
+
+
+
+
+	//- h3 Want to Vote?
+	//- 	form(method='post', action='/votesubmit')
+	//- 		input.button(name='button', type='submit')
+
+
+
