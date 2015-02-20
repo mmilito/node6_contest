@@ -7,35 +7,17 @@ block content
 
 	div.videos
 		for video in bigVideoArray
-			if video.pairs === "1"
+			if video.pairs === startVotingPair
 				div.pair-1
-					h3
+					h3= startVotingPair
 						em= video.name
 					p= video.title
 					p= video.description
 					a(href= "/votesubmit/#{video.name}") VOTE!!
 					p Current votes: #{video.votes}
 					#{video.url}
-
-
-			else
-				div.pair-2
-					h3
-						em= video.name
-					p= video.title
-					p= video.description
-					a(href= "/votesubmit/#{video.name}") VOTE!!
-					p Current votes: #{video.votes}
-					#{video.url}
-
-
-
-
-
-
-	//- h3 Want to Vote?
-	//- 	form(method='post', action='/votesubmit')
-	//- 		input.button(name='button', type='submit')
-
-
+		h3 Go to next pair ...
+			form(method='post', action='/video2')
+				input.button(name='button', type='submit', value='Go!')
+			
 

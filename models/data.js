@@ -35,8 +35,11 @@ var bigVideoArray = [
 	}
 ];
 
+// seed value to move through voting pairs - BEWARE of DATA TYPE!!!
+var startVotingPair = "1";
 
 module.exports = {
 	numContestants: numContestants,
-	bigVideoArray: bigVideoArray
+	bigVideoArray: bigVideoArray,
+	startVotingPair: startVotingPair
 };

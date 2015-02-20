@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 // route definitions
 app.get('/', indexController.goHome);
 app.get('/videos', indexController.getVideos);
+app.post('/video2', indexController.incrementPair);
 app.post('/formsubmit', indexController.subForm);
 app.post('/gotopage', indexController.goPage);
 app.get('/votesubmit/:name', indexController.goVote);

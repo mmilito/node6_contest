@@ -10,6 +10,14 @@ var indexController = {
 	goHome: function(req,res){
 		res.render('index', data);
 	},
+	
+	// re-render voting page with next pair
+	incrementPair: function(req,res){
+		//BEWARE OF DATA TYPE
+		data.startVotingPair=(parseInt(data.startVotingPair)+1).toString();
+		res.redirect('/videos');
+	},
+
 
 	// render video page, makes data (model) available
 	getVideos: function(req,res){
@@ -22,7 +30,7 @@ var indexController = {
 				data.bigVideoArray[i].pairs="2";
 			}
 		}
-		res.render('videos', data);
+		res.render('videos', data);	
 	},
 
 	// get the data from form, add to array and go to video page
@@ -47,6 +55,7 @@ var indexController = {
 		data.bigVideoArray[votedIndex].votes=data.bigVideoArray[votedIndex].votes+1;
 		res.redirect('/videos');
 	}
+
 };
 
 module.exports=indexController;
