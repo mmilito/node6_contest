@@ -1,6 +1,7 @@
 // main controller page
-
+var _= require('underscore');
 var data = require('../models/data.js');
+
 
 // define indexController object with available methods
 var indexController = {
@@ -13,12 +14,12 @@ var indexController = {
 	// render video page, makes data (model) available
 	getVideos: function(req,res){
 			
-			// make pairs of videos to vote on
+		// make pairs of videos to vote on
 		for(var i=0;i<data.bigVideoArray.length;i++){
 			if ((i+1) %2 === 0){
-				data.bigVideoArray[i].pairs="a";
+				data.bigVideoArray[i].pairs="1";
 			} else {
-				data.bigVideoArray[i].pairs="b";
+				data.bigVideoArray[i].pairs="2";
 			}
 		}
 		res.render('videos', data);
@@ -26,7 +27,7 @@ var indexController = {
 
 	// get the data from form, add to array and go to video page
 	subForm: function(req,res){
-		if (data.bigVideoArray.length<4){
+		if (data.bigVideoArray.length<numContestants){
 			data.bigVideoArray.push(req.body);
 			res.redirect('/videos');
 		} else {
@@ -34,17 +35,18 @@ var indexController = {
 		}
 	},
 
-	// go on to video review page
+	// go on to voting page
 	goPage: function(req,res){
 		res.redirect('/videos');
 	},
 
-	///////!!! NOT COMPLETE
 	// voting function
 	goVote: function(req,res){
-
+		var votedFor=_.find(data.bigVideoArray, {name: decodeURIComponent(req.params.name)});
+		var votedIndex= _.indexOf(data.bigVideoArray,votedFor);
+		data.bigVideoArray[votedIndex].votes=data.bigVideoArray[votedIndex].votes+1;
+		res.redirect('/videos');
 	}
-
 };
 
 module.exports=indexController;

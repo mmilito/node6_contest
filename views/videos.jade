@@ -7,20 +7,25 @@ block content
 
 	div.videos
 		for video in bigVideoArray
-			if video.pairs === "a"
-				div.a-pair
+			if video.pairs === "1"
+				div.pair-1
 					h3
 						em= video.name
 					p= video.title
 					p= video.description
+					a(href= "/votesubmit/#{video.name}") VOTE!!
+					p Current votes: #{video.votes}
 					#{video.url}
 
+
 			else
-				div.b-pair
+				div.pair-2
 					h3
 						em= video.name
 					p= video.title
 					p= video.description
+					a(href= "/votesubmit/#{video.name}") VOTE!!
+					p Current votes: #{video.votes}
 					#{video.url}
 
 

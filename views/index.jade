@@ -18,11 +18,11 @@ block content
 				#{video.url}
 
 
-	if bigVideoArray.length>4
+	if bigVideoArray.length>=numContestants
 		h2 Sorry, the contest is full
 
 		h3 Go to voting ...
-			form(method='post', action='/goToPage')
+			form(method='post', action='/gotopage')
 				input.button(name='button', type='submit', value='Go!')
 
 	else
