@@ -26,13 +26,13 @@ var bigVideoArray = [
 		title: 'WEG 2014',
 		description: 'Start at 45 secs, one-handed handstand near end',
 		votes: 0
-		},
-	{	name: 'Emma Milito',
-		url: 'iframe width="560" height="315" src="https://www.youtube.com/embed/gddAqLoW6Qg" frameborder="0" allowfullscreen></iframe',
-		title: 'Emma Copper',
-		description: 'first copper competition',
-		votes: 0
-	}
+		}
+	// {	name: 'Emma Milito',
+	// 	url: 'iframe width="560" height="315" src="https://www.youtube.com/embed/gddAqLoW6Qg" frameborder="0" allowfullscreen></iframe',
+	// 	title: 'Emma Copper',
+	// 	description: 'first copper competition',
+	// 	votes: 0
+	// }
 ];
 
 // seed value to move through voting pairs - BEWARE of DATA TYPE!!!

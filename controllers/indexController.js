@@ -35,7 +35,7 @@ var indexController = {
 
 	// get the data from form, add to array and go to video page
 	subForm: function(req,res){
-		if (data.bigVideoArray.length<numContestants){
+		if (data.bigVideoArray.length<data.numContestants){
 			data.bigVideoArray.push(req.body);
 			res.redirect('/videos');
 		} else {
