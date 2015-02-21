@@ -21,15 +21,7 @@ var indexController = {
 
 	// render video page, makes data (model) available
 	getVideos: function(req,res){
-			
-		// make pairs of videos to vote on
-		for(var i=0;i<data.bigVideoArray.length;i++){
-			if ((i+1) %2 === 0){
-				data.bigVideoArray[i].pairs="1";
-			} else {
-				data.bigVideoArray[i].pairs="2";
-			}
-		}
+		data.pairs();
 		res.render('videos', data);	
 	},
 
@@ -37,10 +29,8 @@ var indexController = {
 	subForm: function(req,res){
 		if (data.bigVideoArray.length<data.numContestants){
 			data.bigVideoArray.push(req.body);
-			res.redirect('/videos');
-		} else {
-			res.redirect('/videos');
 		}
+		res.redirect('/videos');
 	},
 
 	// go on to voting page
